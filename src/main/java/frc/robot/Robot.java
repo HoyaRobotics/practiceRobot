@@ -8,17 +8,28 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.PWMVictorSPX;
+//import edu.wpi.first.wpilibj.PWMVictorSPX;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.Talon;
+
 
 /**
  * This is a demo program showing the use of the DifferentialDrive class.
  * Runs the motors with arcade steering.
  */
 public class Robot extends TimedRobot {
-  private final PWMVictorSPX m_leftMotor = new PWMVictorSPX(0);
-  private final PWMVictorSPX m_rightMotor = new PWMVictorSPX(1);
+
+  /***
+   * Drive train motors
+   * Left motor is plugged into PWM 0 on RoboRio
+   * Right motor is plugged into PWM 1 on RoboRio
+   * Both motors are connected to Talon motor controllers
+   */
+  private final Talon m_leftMotor  = new Talon(0);
+//  private final PWMVictorSPX m_leftMotor = new PWMVictorSPX(0);
+  private final Talon m_rightMotor = new Talon(1);
+//  private final PWMVictorSPX m_rightMotor = new PWMVictorSPX(1);
   private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_leftMotor, m_rightMotor);
   private final Joystick m_stick = new Joystick(0);
 
